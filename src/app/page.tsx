@@ -14,10 +14,35 @@ export default function Home() {
     <main className="min-h-screen">
       <NavigationMenu />
       
+      {/* Imagen de fondo estática para toda la página */}
+      <div className="absolute inset-0 bg-[url('/fondo.jpg')] bg-cover bg-center bg-fixed z-0" />
+      <div className="absolute inset-0 bg-black opacity-80 z-0" />
+      
+      {/* Estrellas con mayor visibilidad */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="stars-container">
+          <div className="stars stars1"></div>
+          <div className="stars stars2"></div>
+          <div className="stars stars3"></div>
+        </div>
+      </div>
+      
+      {/* Símbolo de fondo estático */}
+      <div className="absolute inset-0 z-0" style={{ top: '100vh', position: 'fixed' }}>
+        <div className="absolute -top-[200px] sm:-top-[300px] md:-top-[400px] right-0 w-[600px] sm:w-[800px] md:w-[1000px] lg:w-[1200px] h-[400px] sm:h-[600px] md:h-[800px] opacity-[0.02]">
+          <Image
+            src="/orion-symbol.png"
+            alt=""
+            fill
+            className="object-contain"
+            priority
+            sizes="(max-width: 640px) 600px, (max-width: 768px) 800px, (max-width: 1024px) 1000px, 1200px"
+          />
+        </div>
+      </div>
+      
       {/* Sección Hero */}
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="fixed inset-0 bg-[url('/fondo.jpg')] bg-cover bg-center opacity-70" />
-        <div className="absolute inset-0 bg-black opacity-80" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
             <div className="flex flex-col items-center justify-center mb-12 md:mb-24">
@@ -57,24 +82,7 @@ export default function Home() {
       </section>
 
       <div className="relative">
-        <div className="relative min-h-screen" style={{ backgroundColor: 'rgb(0, 0, 0)' }}>
-          <div className="absolute inset-0 bg-[url('/fondo.jpg')] bg-cover bg-center opacity-70" />
-          <div className="absolute inset-0 bg-black opacity-80" />
-          
-          {/* Símbolo de fondo */}
-          <div className="fixed inset-0" style={{ top: '100vh' }}>
-            <div className="absolute -top-[200px] sm:-top-[300px] md:-top-[400px] right-0 w-[600px] sm:w-[800px] md:w-[1000px] lg:w-[1200px] h-[400px] sm:h-[600px] md:h-[800px] opacity-[0.02]">
-              <Image
-                src="/orion-symbol.png"
-                alt=""
-                fill
-                className="object-contain"
-                priority
-                sizes="(max-width: 640px) 600px, (max-width: 768px) 800px, (max-width: 1024px) 1000px, 1200px"
-              />
-            </div>
-          </div>
-
+        <div className="relative min-h-screen">
           {/* Contenido de las secciones */}
           <div className="relative z-10">
             {/* Sección de Servicios */}
@@ -231,9 +239,24 @@ export default function Home() {
             {/* Sección de Contacto */}
             <section id="contacto" className="relative py-20 md:py-32 overflow-hidden">
               <div className="container mx-auto px-4 relative z-10">
-                <h2 className="section-title text-center mb-10 md:mb-16">Inicia Tu Transformación Digital</h2>
-                <div className="max-w-3xl mx-auto">
-                  <ContactForm />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
+                  <div className="backdrop-blur-md p-6 md:p-12 rounded-xl border border-metallic/5 bg-black/70">
+                    <ContactForm />
+                  </div>
+                  <div className="space-y-6 md:space-y-8">
+                    <div className="backdrop-blur-md p-6 md:p-8 rounded-xl border border-metallic/5 bg-black/70">
+                      <h3 className="text-lg md:text-xl font-bold text-electric mb-3 md:mb-4">Ubicación</h3>
+                      <p className="text-metallic">Medellín, Colombia</p>
+                    </div>
+                    <div className="backdrop-blur-md p-6 md:p-8 rounded-xl border border-metallic/5 bg-black/70">
+                      <h3 className="text-lg md:text-xl font-bold text-electric mb-3 md:mb-4">Correo Electrónico</h3>
+                      <p className="text-metallic">contacto@orion.mx</p>
+                    </div>
+                    <div className="backdrop-blur-md p-6 md:p-8 rounded-xl border border-metallic/5 bg-black/70">
+                      <h3 className="text-lg md:text-xl font-bold text-electric mb-3 md:mb-4">Horario de Atención</h3>
+                      <p className="text-metallic">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="mt-16 md:mt-24 text-center">
                   <p className="text-metallic text-sm md:text-base">

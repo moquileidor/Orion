@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import NavigationMenu from '@/components/NavigationMenu'
 
 export default function AuthLayout({
   children,
@@ -8,7 +9,8 @@ export default function AuthLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[url('/fondo.jpg')] bg-cover bg-center">
+    <div className="min-h-screen flex items-center justify-center bg-[url('/fondo.jpg')] bg-cover bg-center bg-fixed">
+      <NavigationMenu />
       <div className="absolute inset-0 bg-black/80" />
       <motion.div 
         className="relative z-10 w-full max-w-md"

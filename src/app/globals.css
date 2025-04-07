@@ -68,3 +68,55 @@ body {
     @apply text-electric hover:text-electric-light transition-colors duration-300;
   }
 } 
+
+/* Estilos para las estrellas con mayor visibilidad */
+.stars-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-image: 
+    radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    radial-gradient(white, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+  z-index: 1;
+}
+
+.stars1 {
+  opacity: 0.6;
+  animation: twinkle 5s infinite;
+}
+
+.stars2 {
+  background-position: 120px 80px, 200px 60px, 300px 100px;
+  opacity: 0.4;
+  animation: twinkle 7s infinite;
+  animation-delay: 1s;
+}
+
+.stars3 {
+  background-position: 220px 280px, 400px 160px, 500px 200px;
+  opacity: 0.5;
+  animation: twinkle 9s infinite;
+  animation-delay: 2s;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
